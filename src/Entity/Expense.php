@@ -29,6 +29,9 @@ class Expense
     #[ORM\Column(nullable: true)]
     private ?bool $isGain = null;
 
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'expenses')]
+    private ?Category $category = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,18 @@ class Expense
     public function setIsGain(?bool $isGain): static
     {
         $this->isGain = $isGain;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): static
+    {
+        $this->category = $category;
 
         return $this;
     }
