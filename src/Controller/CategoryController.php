@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +16,14 @@ class CategoryController extends AbstractController
     {
         return $this->render('app/category/index.html.twig', [
             //TODO
+        ]);
+    }
+
+    #[Route(path: ['fr' => '/{id}', 'en' => '/{id}'], name: 'show', methods: [Request::METHOD_GET])]
+    public function show(Category $category) : Response
+    {
+        return $this->render('app/category/show.html.twig', [
+            'category' => $category
         ]);
     }
 }
