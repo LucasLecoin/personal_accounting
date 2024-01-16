@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ExpenseRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -33,6 +35,14 @@ class Expense
 
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'expenses')]
     private ?Category $category = null;
+
+    #[ORM\ManyToMany(targetEntity: Tag::class, mappedBy: 'expenses')]
+    private Collection $tags;
+
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -107,6 +117,33 @@ class Expense
     public function setCategory(?Category $category): static
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Tag>
+     */
+    public function getTags(): Collection
+    {
+        return $this->tags;
+    }
+
+    public function addTag(Tag $tag): static
+    {
+        if (!$this->tags->contains($tag)) {
+            $this->tags->add($tag);
+            $tag->addExpense($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTag(Tag $tag): static
+    {
+        if ($this->tags->removeElement($tag)) {
+            $tag->removeExpense($this);
+        }
 
         return $this;
     }
