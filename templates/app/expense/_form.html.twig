@@ -1,0 +1,10 @@
+{{ form_start(form) }}
+    {{ form_row(form.date, {label: 'label.date'}) }}
+    {{ form_row(form.amount, {label: 'label.amount'}) }}
+    {{ form_row(form.category, {label: 'label.category'}) }}
+    {{ form_row(form.description, {label: 'label.description'}) }}
+    {{ form_row(form.isCash, {label: 'label.is_cash'}) }}
+    {{ form_row(form.isGain, {label: 'label.is_gain'}) }}
+
+    {{ include('_partials/_input/submit.html.twig') }}
+{{ form_end(form) }}
