@@ -1,0 +1,10 @@
+btn.add: Ajouter
+head_title.base: 'Comptabilité personnelle'
+label.amount: Montant
+label.category: Catégorie
+label.date: Date
+label.description: Description
+label.is_cash: 'Est en espèce ?'
+label.is_gain: 'Est un gain ?'
+label.name: Nom
+placeholder.expense.category: '-- Aucune --'
