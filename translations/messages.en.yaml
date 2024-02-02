@@ -1,0 +1,10 @@
+btn.add: Add
+head_title.base: 'Personal Accounting'
+label.amount: Amount
+label.category: Category
+label.date: Date
+label.description: Description
+label.is_cash: 'Is cash ?'
+label.is_gain: 'Is a gain ?'
+label.name: Name
+placeholder.expense.category: '-- None --'
