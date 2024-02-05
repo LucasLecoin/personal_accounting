@@ -1,3 +1,9 @@
+@import url("header.css");
+
 body {
     background-color: #f7f7f7;
+}
+main {
+    width: 80%;
+    margin: 0 auto;
 }
