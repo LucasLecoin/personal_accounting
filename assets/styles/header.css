@@ -13,13 +13,12 @@ header {
     display: none;
 }
 #menu-button-container {
-    width: 30px;
+    width: 32px;
+    height: 26px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
+    justify-content: space-between;
 }
 #menu-button,
 #menu-button-container::before,
@@ -30,39 +29,60 @@ header {
     width: 100%;
     border-radius: 2px;
 }
-#menu-button-container::before,
+#menu-button {
+    transition: transform 0.2s ease-in-out;
+}
+#menu-button-container::before {
+    content: "";
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+}
 #menu-button-container::after {
     content: "";
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
 }
-/*#menu {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    position: absolute;*/
-/*    top: 60px;*/
-/*    left: 0;*/
-/*    width: 100%;*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    list-style-type: none;*/
-/*}*/
-/*#menu-toggle ~ #menu a {*/
-/*    font: 600 20px Roboto, sans-serif;*/
-/*    text-decoration: none;*/
-/*    color: white;*/
-/*    overflow: hidden;*/
-/*    height: 0;*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*    border: none;*/
-/*    display: block;*/
-/*    width: 100%;*/
-/*    background-color: #222;*/
-/*    transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);*/
-/*}*/
-/*#menu-toggle:checked ~ #menu a*/
-/*{*/
-/*    border: 1px solid #333;*/
-/*    padding: 12px 24px;*/
-/*}*/
+#menu-toggle:checked ~ #menu-button-container #menu-button {
+    transform: scaleY(0);
+}
+#menu-toggle:checked ~ #menu-button-container::before {
+    transform: rotate(45deg);
+}
+#menu-toggle:checked ~ #menu-button-container::after {
+    transform: rotate(-45deg);
+}
+#menu {
+    list-style-type: none;
+    margin: 0;
+    padding-top: 100px;
+    padding-left: 50px;
+    background: #fff;
+    height: 100vh;
+    min-width: 300px;
+    max-width: 100vw;
+    transform: translate(-150%);
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: 5px 0 10px 0 #aaa;
+    opacity: 0.95;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#menu-toggle ~ #menu a {
+    font: 500 1.3rem Roboto, sans-serif;
+    color: #444;
+    transition: color 0.3s ease-in-out;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+#menu-toggle ~ #menu a:hover {
+    color: black;
+}
+#menu-toggle:checked ~ #menu {
+    transform: translateX(0);
+}
