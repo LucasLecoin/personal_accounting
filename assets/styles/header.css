@@ -5,8 +5,8 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: #00BAF0;
-    color: #FFF;
+    background-color: var(--color-navbar);
+    color: white;
     padding: 16px;
 }
 #menu-toggle {
