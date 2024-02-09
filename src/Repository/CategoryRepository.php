@@ -20,5 +20,24 @@ class CategoryRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Category::class);
     }
+    private function isGainFilter(bool $isGain): string {
+        return 'e.isGain '. ($isGain ? '':'!') . '= 1';
+    }
 
+    /**
+     * return array of [title => c.title, totalAmount => SUM(e.amount)] <string,int>
+     */
+    public function queryExpenseGain(bool $isGain = false): array {
+        $qb = $this->createQueryBuilder('c')
+            ->leftJoin('c.expenses', 'e')
+            ->select('c.name, SUM(e.amount) as totalAmount')
+            ->where($this->isGainFilter($isGain))
+            ->orWhere('e IS NULL')
+            ->orderBy('totalAmount', 'DESC')
+            ->addOrderBy('c.name', 'ASC')
+            ->groupBy('c.name')
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
 }
