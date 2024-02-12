@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Category;
 use App\Form\CategoryType;
+use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategoryController extends AbstractController
 {
     #[Route(path: ['fr' => '/', 'en' => '/'], name: 'index', methods: [Request::METHOD_GET, Request::METHOD_POST])]
-    public function index(Request $request, EntityManagerInterface $em): Response
+    public function index(Request $request, EntityManagerInterface $em, CategoryRepository $categoryRepository): Response
     {
         $category = new Category();
         $formAdd = $this->createForm(CategoryType::class, $category, [
@@ -29,7 +30,8 @@ class CategoryController extends AbstractController
         }
 
         return $this->render('app/category/index.html.twig', [
-            'formAdd' => $formAdd
+            'formAdd' => $formAdd,
+            'data' => $categoryRepository->getBalancedData(),
         ]);
     }
 
