@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Expense;
 use App\Form\ExpenseType;
+use App\Repository\ExpenseRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ExpenseController extends AbstractController
 {
     #[Route(path: ['fr' => '/', 'en' => '/'], name: 'index', methods: [Request::METHOD_GET, Request::METHOD_POST])]
-    public function index(Request $request, EntityManagerInterface $em): Response
+    public function index(Request $request, EntityManagerInterface $em, ExpenseRepository $expenseRepository): Response
     {
         $expense = new Expense();
         $formAdd = $this->createForm(ExpenseType::class, $expense, [
@@ -29,7 +30,8 @@ class ExpenseController extends AbstractController
         }
 
         return $this->render('app/expense/index.html.twig', [
-            'formAdd' => $formAdd
+            'formAdd' => $formAdd,
+            'data' => $expenseRepository->getTableData()
         ]);
     }
 
