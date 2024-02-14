@@ -1,0 +1,15 @@
+<p>{{ 'label.table_count'|trans }} : {{ data|length }}</p>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        {% for th in tableHead %}
+            <th scope="col">{{ ('label.'~th)|trans }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in data %}
+        {{ include(tableRow) }}
+    {% endfor %}
+    </tbody>
+</table>
