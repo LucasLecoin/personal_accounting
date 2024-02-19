@@ -2,4 +2,9 @@
 
 {% block body %}
     {% include "app/expense/_form.html.twig" with {form: formAdd} %}
+
+    {% include 'layout/table.html.twig' with {
+        tableHead: ['date', 'amount', 'category', 'description', 'is_cash', 'is_gain'],
+        tableRow: 'layout/tableRow/expense.html.twig'
+    } %}
 {% endblock %}
