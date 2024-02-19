@@ -1,0 +1,8 @@
+<tr class="">
+    <td>{{ row.date|date('d/m/Y') }}</td>
+    <td>{{ row.amount|number_format(2, '€', ' ') }}</td>
+    <td>{{ row.category.name ?? '-' }}</td>
+    <td>{{ row.description }}</td>
+    <td>{{ (row.isCash ? 'bool.yes' : 'bool.no')|trans }}</td>
+    <td>{{ (row.isGain ? 'label.gain' : 'label.expense')|trans }}</td>
+</tr>
