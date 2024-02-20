@@ -3,7 +3,8 @@
 {% block body %}
     {% include "app/category/_form.html.twig" with {form: formAdd} %}
 
-    {% set tableHead = ['category', 'amount', 'balance'] %}
-    {% set tableRow = 'layout/tableRow/category.html.twig' %}
-    {% include 'layout/table.html.twig' %}
+    {% include 'layout/table.html.twig' with {
+        tableHead: ['category', 'amount', 'balance'],
+        tableRow: 'layout/tableRow/category.html.twig'
+    } %}
 {% endblock %}
