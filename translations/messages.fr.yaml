@@ -1,10 +1,21 @@
+bool.no: Non
+bool.yes: Oui
 btn.add: Ajouter
 head_title.base: 'Comptabilité personnelle'
 label.amount: Montant
 label.category: Catégorie
 label.date: Date
 label.description: Description
+label.balance: Equilibre
+label.expense: Dépense
+label.expenses: Dépenses
+label.gain: Gain
+label.gains: Gains
 label.is_cash: 'Est en espèce ?'
 label.is_gain: 'Est un gain ?'
 label.name: Nom
+label.neutral: Neutre
+label.table_count: 'Nombres de lignes'
+menu.categories: Catégories
+menu.expenses: Dépenses
 placeholder.expense.category: '-- Aucune --'

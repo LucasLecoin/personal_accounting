@@ -1,10 +1,21 @@
+bool.no: No
+bool.yes: Yes
 btn.add: Add
 head_title.base: 'Personal Accounting'
 label.amount: Amount
 label.category: Category
 label.date: Date
 label.description: Description
+label.balance: Balance
+label.expense: Expense
+label.expenses: Expenses
+label.gain: Gain
+label.gains: Gains
 label.is_cash: 'Is cash ?'
 label.is_gain: 'Is a gain ?'
 label.name: Name
+label.neutral: Neutral
+label.table_count: 'Number of lines'
+menu.categories: Categories
+menu.expenses: Expenses
 placeholder.expense.category: '-- None --'
