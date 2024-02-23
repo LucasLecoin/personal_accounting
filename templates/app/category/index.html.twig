@@ -1,7 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% include "app/category/_form.html.twig" with {form: formAdd} %}
+    {% include 'layout/popin.html.twig' with {
+        modalId: 'addCategory',
+        buttonText: 'btn.add_category'|trans,
+        modalTitle: 'modal_title.add_category'|trans,
+        modalBody: 'app/category/_form.html.twig',
+        form: formAdd
+    } %}
 
     {% include 'layout/table.html.twig' with {
         tableHead: ['category', 'amount', 'balance'],
