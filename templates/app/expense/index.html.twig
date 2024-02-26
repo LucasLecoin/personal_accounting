@@ -1,7 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% include "app/expense/_form.html.twig" with {form: formAdd} %}
+    {% include 'layout/modal.html.twig' with {
+        modalId: 'addExpense',
+        buttonText: 'btn.add_expense'|trans,
+        modalTitle: 'modal_title.add_expense'|trans,
+        modalBody: 'app/expense/_form.html.twig',
+        form: formAdd
+    } %}
 
     {% include 'layout/table.html.twig' with {
         tableHead: ['date', 'amount', 'category', 'description', 'is_cash', 'is_gain'],
