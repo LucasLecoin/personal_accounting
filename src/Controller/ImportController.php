@@ -14,9 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ImportController extends AbstractController
 {
-    /**
-     * @Route("/import", name="app_import_csv")
-     */
+    #[Route('/import', name: 'app_import_csv')]
     public function import(Request $request, CategoryRepository $categoryRepository, EntityManagerInterface $em): Response
     {
         /** @var UploadedFile $file */
