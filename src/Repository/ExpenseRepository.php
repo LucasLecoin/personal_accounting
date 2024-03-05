@@ -26,7 +26,8 @@ class ExpenseRepository extends ServiceEntityRepository
      */
     public function getTableData(): array
     {
-        $qb = $this->createQueryBuilder('e');
+        $qb = $this->createQueryBuilder('e')
+            ->orderBy('e.date', 'DESC');
         return $qb->getQuery()->getResult();
     }
 }
