@@ -9,6 +9,7 @@ header {
     color: white;
     padding: 16px;
 }
+.importForm input,
 #menu-toggle {
     display: none;
 }
@@ -71,6 +72,7 @@ header {
     top: 0;
     left: 0;
 }
+.importForm label,
 #menu-toggle ~ #menu a {
     font: 500 1.3rem Roboto, sans-serif;
     color: #444;
@@ -79,7 +81,9 @@ header {
     margin: 0;
     padding: 0;
     border: none;
+    cursor: pointer;
 }
+.importForm label:hover,
 #menu-toggle ~ #menu a:hover {
     color: black;
 }
