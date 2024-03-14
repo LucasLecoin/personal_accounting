@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Filters\FilterCategory;
 use App\Form\CategoryType;
+use App\Form\Filters\FilterCategoryType;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,9 +31,16 @@ class CategoryController extends AbstractController
             return $this->redirectToRoute('app_category_index');
         }
 
+        $filterCategory = new FilterCategory();
+        $formFilter = $this->createForm(FilterCategoryType::class, $filterCategory, [
+            'method' => Request::METHOD_GET
+        ]);
+        $formFilter->handleRequest($request);
+
         return $this->render('app/category/index.html.twig', [
             'formAdd' => $formAdd,
-            'data' => $categoryRepository->getBalancedData(),
+            'formFilter' => $formFilter,
+            'data' => $categoryRepository->getBalancedData($filterCategory),
         ]);
     }
 
