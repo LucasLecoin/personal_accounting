@@ -31,8 +31,8 @@ class CategoryController extends AbstractController
             return $this->redirectToRoute('app_category_index');
         }
 
-        $filterCategory = new FilterCategory();
-        $formFilter = $this->createForm(FilterCategoryType::class, $filterCategory, [
+        $filter = new FilterCategory();
+        $formFilter = $this->createForm(FilterCategoryType::class, $filter, [
             'method' => Request::METHOD_GET
         ]);
         $formFilter->handleRequest($request);
@@ -40,7 +40,7 @@ class CategoryController extends AbstractController
         return $this->render('app/category/index.html.twig', [
             'formAdd' => $formAdd,
             'formFilter' => $formFilter,
-            'data' => $categoryRepository->getBalancedData($filterCategory),
+            'data' => $categoryRepository->getBalancedData($filter),
         ]);
     }
 
