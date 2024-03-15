@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Expense;
+use App\Filters\FilterExpense;
 use App\Form\ExpenseType;
+use App\Form\Filters\FilterExpenseType;
 use App\Repository\ExpenseRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,9 +31,15 @@ class ExpenseController extends AbstractController
             return $this->redirectToRoute('app_expense_index');
         }
 
+        $filter = new FilterExpense();
+        $formFilter = $this->createForm(FilterExpenseType::class, $filter, [
+            'method' => Request::METHOD_GET
+        ]);
+        $formFilter->handleRequest($request);
+
         return $this->render('app/expense/index.html.twig', [
             'formAdd' => $formAdd,
-            'data' => $expenseRepository->getTableData()
+            'data' => $expenseRepository->getTableData($filter)
         ]);
     }
 
