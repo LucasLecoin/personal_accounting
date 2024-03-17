@@ -18,4 +18,5 @@ label.neutral: Neutre
 label.table_count: 'Nombres de lignes'
 menu.categories: Catégories
 menu.expenses: Dépenses
+menu.import_csv: 'Import CSV'
 placeholder.expense.category: '-- Aucune --'
