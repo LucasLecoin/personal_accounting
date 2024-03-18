@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Category;
+use App\Filters\FilterCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
@@ -41,14 +42,16 @@ class CategoryRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function getBalancedData(): array {
+    public function getBalancedData(FilterCategory $filter): array {
         $case = "CASE WHEN e.isGain = 1 THEN 1 ELSE -1 END";
-        $results = $this->createQueryBuilder('c')
+        $qb = $this->createQueryBuilder('c')
             ->leftJoin('c.expenses', 'e')
             ->select("c.name, SUM($case * e.amount ) as totalAmount")
             ->orderBy('totalAmount', 'DESC')
             ->addOrderBy('c.name', 'ASC')
-            ->groupBy('c.name')
+            ->groupBy('c.name');
+
+        $results = $this->applyFilterCategory($qb, $filter)
             ->getQuery()
             ->getResult();
         return array_map(function($item) {
@@ -57,5 +60,19 @@ class CategoryRepository extends ServiceEntityRepository
                 ($item['totalAmount'] > 0 ? 'gain' : 'neutral');
             return $item;
         }, $results);
+    }
+
+
+    private function applyFilterCategory(QueryBuilder $qb, FilterCategory $filterCategory): QueryBuilder
+    {
+        if($filterCategory->getStart()) {
+            $qb ->andWhere('e.date >= :start')
+                ->setParameter('start', $filterCategory->getStart());
+        }
+        if($filterCategory->getEnd()) {
+            $qb ->andWhere('e.date >= :end')
+                ->setParameter('end', $filterCategory->getEnd());
+        }
+        return $qb;
     }
 }
