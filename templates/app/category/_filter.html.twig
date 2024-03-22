@@ -1,0 +1,13 @@
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-3">
+            {{ form_row(form.start, {label: 'label.date_start'}) }}
+        </div>
+        <div class="col-3">
+            {{ form_row(form.end, {label: 'label.date_end'}) }}
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-end">
+            {{ include('_partials/_input/submit.html.twig', {btnText: 'btn.filter'}) }}
+        </div>
+    </div>
+{{ form_end(form) }}
