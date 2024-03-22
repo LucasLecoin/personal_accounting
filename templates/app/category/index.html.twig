@@ -8,6 +8,16 @@
         modalBody: 'app/category/_form.html.twig',
         form: formAdd
     } %}
+    {% include 'layout/collapse/button.html.twig' with {
+        collapseId: 'filterForm',
+        buttonText: 'label.filters'|trans
+    } %}
+
+    {% include 'layout/collapse/collapse.html.twig' with {
+        collapseId: 'filterForm',
+        collapseBody: 'app/category/_filter.html.twig',
+        form: formFilter
+    } %}
 
     {% include 'layout/table.html.twig' with {
         tableHead: ['category', 'amount', 'balance'],
