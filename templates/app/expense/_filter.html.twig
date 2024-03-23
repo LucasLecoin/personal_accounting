@@ -1,0 +1,30 @@
+{{ form_start(form) }}
+    <div class="row">
+        <div class="col-3">
+            {{ form_row(form.start, {label: 'label.date_start'}) }}
+        </div>
+        <div class="col-3">
+            {{ form_row(form.end, {label: 'label.date_end'}) }}
+        </div>
+        <div class="col-3">
+            {{ form_row(form.minAmount, {label: 'label.min_amount'}) }}
+        </div>
+        <div class="col-3">
+            {{ form_row(form.maxAmount, {label: 'label.max_amount'}) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            {{ form_row(form.category, {label: 'label.category'}) }}
+        </div>
+        <div class="col-3">
+            {{ form_row(form.isGain, {label: 'label.filter_is_gain'}) }}
+        </div>
+        <div class="col-3">
+            {{ form_row(form.isCash, {label: 'label.filter_is_cash'}) }}
+        </div>
+        <div class="col-3 d-flex justify-content-end align-items-end">
+            {{ include('_partials/_input/submit.html.twig', {btnText: 'btn.filter'}) }}
+        </div>
+    </div>
+{{ form_end(form) }}
