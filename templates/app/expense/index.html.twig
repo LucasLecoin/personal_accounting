@@ -8,6 +8,16 @@
         modalBody: 'app/expense/_form.html.twig',
         form: formAdd
     } %}
+    {% include 'layout/collapse/button.html.twig' with {
+        collapseId: 'filterForm',
+        buttonText: 'label.filters'|trans
+    } %}
+
+    {% include 'layout/collapse/collapse.html.twig' with {
+        collapseId: 'filterForm',
+        collapseBody: 'app/expense/_filter.html.twig',
+        form: formFilter
+    } %}
 
     {% include 'layout/table.html.twig' with {
         tableHead: ['date', 'amount', 'category', 'description', 'is_cash', 'is_gain'],
