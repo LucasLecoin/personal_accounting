@@ -8,12 +8,12 @@
         modalBody: 'app/expense/_form.html.twig',
         form: formAdd
     } %}
-    {% include 'layout/collapse/button.html.twig' with {
+    {% include 'layout/collapse--button.html.twig' with {
         collapseId: 'filterForm',
         buttonText: 'label.filters'|trans
     } %}
 
-    {% include 'layout/collapse/collapse.html.twig' with {
+    {% include 'layout/collapse.html.twig' with {
         collapseId: 'filterForm',
         collapseBody: 'app/expense/_filter.html.twig',
         form: formFilter
