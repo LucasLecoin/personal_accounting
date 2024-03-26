@@ -39,6 +39,7 @@ class ExpenseController extends AbstractController
 
         return $this->render('app/expense/index.html.twig', [
             'formAdd' => $formAdd,
+            'formFilter' => $formFilter,
             'data' => $expenseRepository->getTableData($filter)
         ]);
     }
