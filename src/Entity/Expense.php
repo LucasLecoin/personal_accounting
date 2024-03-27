@@ -39,6 +39,10 @@ class Expense
     #[ORM\ManyToMany(targetEntity: Tag::class, mappedBy: 'expenses')]
     private Collection $tags;
 
+    #[ORM\ManyToOne(inversedBy: 'expenses')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
@@ -144,6 +148,18 @@ class Expense
         if ($this->tags->removeElement($tag)) {
             $tag->removeExpense($this);
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }
