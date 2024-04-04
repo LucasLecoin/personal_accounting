@@ -1,19 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}{{ 'head_title.registration'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <h1>{{ 'head_title.registration'|trans }}</h1>
 
-    {{ form_errors(registrationForm) }}
+    {{ form_errors(form) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+    {{ form_start(form) }}
+        {{ form_row(form.email, { label: 'label.email'}) }}
+        {{ form_row(form.plainPassword.first, { label: 'label.password'}) }}
+        {{ form_row(form.plainPassword.second, { label: 'label.password_confirmation'}) }}
+        {{ include('_partials/_input/submit.html.twig', { btnText: 'btn.valid' }) }}
+    {{ form_end(form) }}
 {% endblock %}
