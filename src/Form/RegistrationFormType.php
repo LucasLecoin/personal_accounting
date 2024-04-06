@@ -19,14 +19,14 @@ class RegistrationFormType extends AbstractType
             ->add('email', EmailType::class)
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'invalid_message' => 'The password fields must match.',
+                'invalid_message' => 'forms.constraints.password.match',
                 'options' => ['attr' => ['class' => 'password-field', 'autocomplete' => 'new-password']],
                 'required' => true,
                 'first_options'  => [
                     'constraints' => [
                         new Length([
                             'min' => 8,
-                            'minMessage' => 'forms.user.constraints.password',
+                            'minMessage' => 'forms.constraints.password.length',
                             'max' => 200,
                         ]),
                     ],
