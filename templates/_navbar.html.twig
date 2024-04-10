@@ -1,20 +1,38 @@
 <ul id="menu">
-    <li>
-        <a href="{{ path('app_expense_index') }}">
-            {{ 'menu.expenses'|trans }}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('app_category_index') }}">
-            {{ 'menu.categories'|trans }}
-        </a>
-    </li>
-    <li>
-        <form class="importForm" action="{{ path('app_import_csv') }}" method="post" enctype="multipart/form-data">
-            <label for="import_csv_file">
-                {{ 'menu.import_csv'|trans }}
-            </label>
-            <input type="file" name="file" id="import_csv_file" class="js-submit-on-change custom-file-input" accept="text/csv">
-        </form>
-    </li>
+    {% if app.user %}
+        <li>
+            <a href="{{ path('app_expense_index') }}">
+                {{ 'menu.expenses'|trans }}
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('app_category_index') }}">
+                {{ 'menu.categories'|trans }}
+            </a>
+        </li>
+        <li>
+            <form class="importForm" action="{{ path('app_import_csv') }}" method="post" enctype="multipart/form-data">
+                <label for="import_csv_file">
+                    {{ 'menu.import_csv'|trans }}
+                </label>
+                <input type="file" name="file" id="import_csv_file" class="js-submit-on-change custom-file-input" accept="text/csv">
+            </form>
+        </li>
+        <li>
+            <a href="{{ path('app_security_logout') }}">
+                {{ 'menu.logout'|trans }}
+            </a>
+        </li>
+    {% else %}
+        <li>
+            <a href="{{ path('app_security_login') }}">
+                {{ 'menu.login'|trans }}
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('app_security_registration') }}">
+                {{ 'menu.registration'|trans }}
+            </a>
+        </li>
+    {% endif %}
 </ul>
