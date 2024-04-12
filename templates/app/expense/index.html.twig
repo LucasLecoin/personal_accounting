@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ 'head_title.expense.index'|trans }}{% endblock %}
+
 {% block body %}
+    <h1>{{ 'head_title.expense.index'|trans }}</h1>
     {% include 'layout/modal.html.twig' with {
         modalId: 'addExpense',
         buttonText: 'btn.add_expense'|trans,
