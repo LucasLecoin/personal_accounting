@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ 'head_title.category.index'|trans }}{% endblock %}
+
 {% block body %}
+    <h1>{{ 'head_title.category.index'|trans }}</h1>
     {% include 'layout/modal.html.twig' with {
         modalId: 'addCategory',
         buttonText: 'btn.add_category'|trans,
