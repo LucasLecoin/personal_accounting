@@ -1,22 +1,47 @@
 bool.no: No
 bool.yes: Yes
 btn.add: Add
+btn.add_category: "Add category"
+btn.add_expense: "Add expense"
+btn.filter: Filter
+filter_choices.is_cash.all: All
+filter_choices.is_cash.only_cash: 'Cash only'
+filter_choices.is_cash.exclude_cash: 'Cash excluded'
+filter_choices.is_gain.all: All
+filter_choices.is_gain.only_gain: 'Gains only'
+filter_choices.is_gain.only_expense: 'Expenses only'
+forms.constraints.password.length: 'The password should be at least {{ limit }} characters long.'
+forms.constraints.password.match: 'The password fields must match.'
 head_title.base: 'Personal Accounting'
+head_title.category.index: Categories
+head_title.expense.index: Expenses
+head_title.registration: 'Account registration'
 label.amount: Amount
 label.category: Category
 label.date: Date
+label.date_end: "Date end"
+label.date_start: "Date start"
 label.description: Description
 label.balance: Balance
 label.expense: Expense
 label.expenses: Expenses
+label.filters: Filters
+label.filter_is_cash: 'Is cash ?'
+label.filter_is_gain: 'Is a gain ?'
 label.gain: Gain
 label.gains: Gains
 label.is_cash: 'Is cash ?'
 label.is_gain: 'Is a gain ?'
+label.min_amount: 'Minimum amount'
+label.max_amount: 'Maximum amount'
 label.name: Name
 label.neutral: Neutral
 label.table_count: 'Number of lines'
 menu.categories: Categories
 menu.expenses: Expenses
 menu.import_csv: 'Import CSV'
+menu.logout: Logout
+modal_title.add_category: "Add category"
+modal_title.add_expense: "Add expense"
 placeholder.expense.category: '-- None --'
+placeholder.filter_expense.category: '-- None --'
