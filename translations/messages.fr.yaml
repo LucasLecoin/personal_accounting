@@ -1,22 +1,47 @@
 bool.no: Non
 bool.yes: Oui
 btn.add: Ajouter
+btn.add_category: "Ajouter catégorie"
+btn.add_expense: "Ajouter dépense"
+btn.filter: Filtrer
+filter_choices.is_cash.all: Tous
+filter_choices.is_cash.only_cash: 'Cash seulement'
+filter_choices.is_cash.exclude_cash: 'Hors cash'
+filter_choices.is_gain.all: Tous
+filter_choices.is_gain.only_gain: 'Gains seulement'
+filter_choices.is_gain.only_expense: 'Dépenses seulement'
+forms.constraints.password.length: 'Le mot de passe doit faire au moins {{ limit }} caractères.'
+forms.constraints.password.match: 'Les champs de mot de passe doivent être identique.'
 head_title.base: 'Comptabilité personnelle'
+head_title.category.index: Catégories
+head_title.expense.index: Dépenses
+head_title.registration: 'Création compte'
 label.amount: Montant
 label.category: Catégorie
 label.date: Date
 label.description: Description
 label.balance: Equilibre
+label.date_end: "Date fin"
+label.date_start: "Date début"
 label.expense: Dépense
 label.expenses: Dépenses
+label.filters: Filtres
+label.filter_is_cash: 'Est en espèce ?'
+label.filter_is_gain: 'Est un gain ?'
 label.gain: Gain
 label.gains: Gains
 label.is_cash: 'Est en espèce ?'
 label.is_gain: 'Est un gain ?'
+label.min_amount: 'Montant minimum'
+label.max_amount: 'Montant maximum'
 label.name: Nom
 label.neutral: Neutre
 label.table_count: 'Nombres de lignes'
 menu.categories: Catégories
 menu.expenses: Dépenses
 menu.import_csv: 'Import CSV'
+menu.logout: Déconnexion
+modal_title.add_category: "Ajouter catégorie"
+modal_title.add_expense: "Ajouter dépense"
 placeholder.expense.category: '-- Aucune --'
+placeholder.filter_expense.category: '-- Aucune --'
