@@ -10,8 +10,6 @@ filter_choices.is_cash.exclude_cash: 'Hors cash'
 filter_choices.is_gain.all: Tous
 filter_choices.is_gain.only_gain: 'Gains seulement'
 filter_choices.is_gain.only_expense: 'Dépenses seulement'
-forms.constraints.password.length: 'Le mot de passe doit faire au moins {{ limit }} caractères.'
-forms.constraints.password.match: 'Les champs de mot de passe doivent être identique.'
 head_title.base: 'Comptabilité personnelle'
 head_title.category.index: Catégories
 head_title.expense.index: Dépenses
