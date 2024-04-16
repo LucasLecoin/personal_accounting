@@ -1,0 +1,2 @@
+forms.constraints.password.length: 'The password should be at least {{ limit }} characters long.'
+forms.constraints.password.match: 'The password fields must match.'
