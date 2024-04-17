@@ -8,6 +8,7 @@ import './bootstrap.js';
 // import './js/_ymnnjq.js';
 import './js/main.js';
 
+import './vendor/normalize.css/normalize.min.css';
 import './styles/app.css';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

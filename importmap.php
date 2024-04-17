@@ -27,4 +27,11 @@ return [
     '@hotwired/turbo' => [
         'version' => '7.3.0',
     ],
+    'normalize.css' => [
+        'version' => '8.0.1',
+    ],
+    'normalize.css/normalize.min.css' => [
+        'version' => '8.0.1',
+        'type' => 'css',
+    ],
 ];
