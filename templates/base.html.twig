@@ -14,9 +14,13 @@
             <label for="menu-toggle" id="menu-button-container">
                 <span id="menu-button"></span>
             </label>
-            <div>
-                Logo here
-            </div>
+            {% if app.user %}
+                <div>
+                    <a href="{{ path('app_security_logout') }}" id="menu-button-logout">
+                        {{ source('@svg_path/logout.svg') }}
+                    </a>
+                </div>
+            {% endif %}
             {% include "_navbar.html.twig" %}
         </header>
         <main>
