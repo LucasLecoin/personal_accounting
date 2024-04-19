@@ -1,13 +1,17 @@
 header {
     position: relative;
     height: 60px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 24px;
     background-color: var(--color-header);
     color: white;
     padding: 16px;
+}
+header,
+header > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
 }
 .importForm input,
 #menu-toggle {
@@ -71,6 +75,7 @@ header {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 100;
 }
 .importForm label,
 #menu-toggle ~ #menu a {
@@ -89,4 +94,13 @@ header {
 }
 #menu-toggle:checked ~ #menu {
     transform: translateX(0);
+}
+#menu-button-logout,
+#menu-button-logout svg
+{
+    width: 28px;
+    height: 28px;
+}
+#menu-button-logout svg path{
+    stroke: white;
 }
