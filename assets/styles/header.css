@@ -96,11 +96,16 @@ header > div {
     transform: translateX(0);
 }
 #menu-button-logout,
-#menu-button-logout svg
+#menu-button-logout svg,
+#menu-button-profile,
+#menu-button-profile svg
 {
     width: 28px;
     height: 28px;
 }
 #menu-button-logout svg path{
     stroke: white;
+}
+#menu-button-profile svg {
+    fill: white;
 }
