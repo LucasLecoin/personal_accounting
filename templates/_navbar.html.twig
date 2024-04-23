@@ -18,11 +18,6 @@
                 <input type="file" name="file" id="import_csv_file" class="js-submit-on-change custom-file-input" accept="text/csv">
             </form>
         </li>
-        <li>
-            <a href="{{ path('app_security_logout') }}">
-                {{ 'menu.logout'|trans }}
-            </a>
-        </li>
     {% else %}
         <li>
             <a href="{{ path('app_security_login') }}">
