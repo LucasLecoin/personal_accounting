@@ -4,6 +4,7 @@ btn.add: Ajouter
 btn.add_category: "Ajouter catégorie"
 btn.add_expense: "Ajouter dépense"
 btn.filter: Filtrer
+btn.valid: Valider
 filter_choices.is_cash.all: Tous
 filter_choices.is_cash.only_cash: 'Cash seulement'
 filter_choices.is_cash.exclude_cash: 'Hors cash'
@@ -13,6 +14,7 @@ filter_choices.is_gain.only_expense: 'Dépenses seulement'
 head_title.base: 'Comptabilité personnelle'
 head_title.category.index: Catégories
 head_title.expense.index: Dépenses
+head_title.login: Connexion
 head_title.registration: 'Création compte'
 label.amount: Montant
 label.category: Catégorie
@@ -21,6 +23,7 @@ label.description: Description
 label.balance: Equilibre
 label.date_end: "Date fin"
 label.date_start: "Date début"
+label.email: Email
 label.expense: Dépense
 label.expenses: Dépenses
 label.filters: Filtres
@@ -34,11 +37,15 @@ label.min_amount: 'Montant minimum'
 label.max_amount: 'Montant maximum'
 label.name: Nom
 label.neutral: Neutre
+label.password: 'Mot de passe'
+label.password_confirmation: 'Confirmer mot de passe'
 label.table_count: 'Nombres de lignes'
 menu.categories: Catégories
 menu.expenses: Dépenses
 menu.import_csv: 'Import CSV'
+menu.login: Connexion
 menu.logout: Déconnexion
+menu.registration: Inscription
 modal_title.add_category: "Ajouter catégorie"
 modal_title.add_expense: "Ajouter dépense"
 placeholder.expense.category: '-- Aucune --'
