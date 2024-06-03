@@ -68,4 +68,36 @@ class SecurityController extends AbstractController
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
+
+    #[Route(path: ['fr' => '/profil', 'en' => '/profile'], name: 'profile', methods: [Request::METHOD_GET, Request::METHOD_POST])]
+    public function profile(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+        $form = $this->createForm(RegistrationFormType::class, $user, [
+            'edit' => true
+        ]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            if($plainPassword = $form->get('plainPassword')->getData()) {
+                // encode the plain password
+                $user->setPassword(
+                    $userPasswordHasher->hashPassword(
+                        $user,
+                        $plainPassword
+                    )
+                );
+            }
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+//            $this->addFlash('notice', 'flash_message.user_registered');
+            return $this->redirectToRoute('_app_root');
+        }
+
+        return $this->render('app/security/profile.html.twig', [
+            'form' => $form
+        ]);
+    }
 }
