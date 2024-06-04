@@ -21,7 +21,7 @@ class RegistrationFormType extends AbstractType
                 'type' => PasswordType::class,
                 'invalid_message' => 'forms.constraints.password.match',
                 'options' => ['attr' => ['class' => 'password-field', 'autocomplete' => 'new-password']],
-                'required' => true,
+                'required' => !$options['edit'],
                 'first_options'  => [
                     'constraints' => [
                         new Length([
@@ -39,6 +39,7 @@ class RegistrationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
+            'edit' => false
         ]);
     }
 }
