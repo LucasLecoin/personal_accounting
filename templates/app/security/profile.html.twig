@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'head_title.profile'|trans }}{% endblock %}
+
+{% block body %}
+    <h1>{{ 'head_title.profile'|trans }}</h1>
+
+    {{ form_errors(form) }}
+
+    {{ form_start(form) }}
+        {{ form_row(form.email, { label: 'label.email'}) }}
+        {{ form_row(form.plainPassword.first, { label: 'label.password'}) }}
+        {{ form_row(form.plainPassword.second, { label: 'label.password_confirmation'}) }}
+        {{ include('_partials/_input/submit.html.twig', { btnText: 'btn.valid' }) }}
+    {{ form_end(form) }}
+{% endblock %}
